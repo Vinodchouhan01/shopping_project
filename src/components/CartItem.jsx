@@ -21,7 +21,7 @@ const CartItem = ({ item, itemIndex }) => {
           <h1 className="text-2xl font-bold">{item.title}</h1>
           <h1>{item.description}</h1>
           <div className="flex items-center justify-between">
-            <p>{item.price}</p>
+            <p>$ {item.price}</p>
             <div onClick={removeFromCart} >
             <MdDelete color="#008000" className="text-3xl mt-10" />
             </div>

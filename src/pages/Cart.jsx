@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import CartItem from "../components/CartItem";
-
+import Checkout from "../components/Checkout";
 
 
 const Cart = () => {
@@ -15,7 +15,7 @@ const Cart = () => {
   useEffect( () => {
     setTotalAmount( cart.reduce( (acc, curr) => acc + curr.price,0) );
   }, [cart])
-
+  
   return (
     <div>
       {
@@ -35,12 +35,14 @@ const Cart = () => {
                 <span className='text-xl text-gray-700 font-semibold'> Total items:{cart.length}</span>
               </p>
               <p className='text-lg text-gray-700 font-medium'>
-                Total amount: {totalAmount}
+                Total amount: ${totalAmount}
               </p>
-                <button className=' text-lg mt-4 font-bold 
-                bg-green-700 text-white rounded-full'>
-                  Checkout Now
-                </button>
+              <NavLink to={`/checkout?totalAmount=${totalAmount}`}>
+                     <button className='mt-4 text-lg font-semibold bg-green-700 text-white rounded-full px-10'>
+                   Checkout now
+             </button>
+      </NavLink>
+}
             </div>
 
 

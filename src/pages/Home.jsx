@@ -3,12 +3,13 @@ import Spinner from "../components/Spinner";
 import Product from "../components/Product";
 
 const Home = () => {
+
   const API_URL = "https://fakestoreapi.com/products";
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
-
+  
   async function fetchProductData() {
-    setLoading(true);
+  setLoading(true);
 
     try{
       const res = await fetch(API_URL);
